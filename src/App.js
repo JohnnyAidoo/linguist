@@ -1,12 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import { AppBar, Button, Select, TextField,MenuItem } from '@mui/material';
 import axios from 'axios';
 function App(){
-  
+
+  const [result , setresult] = useState('')
+
+  const translate = ()=>{
   axios.get('http://127.0.0.1:5000/').then((res) =>{
-    console.log(res);
+    setresult(res.data.message);
   })
+  }
 
   return (
     
@@ -28,8 +32,8 @@ function App(){
           </Select>
         </div>
         <TextField multiline label='input here' id='fullWidth'></TextField>
-        <Button variant='contained' id='button'>translate</Button>
-        <TextField multiline id='fullWidth'> translated </TextField>
+        <Button onClick={translate} variant='contained' id='button'>translate</Button>
+        <TextField multiline id='fullWidth'>{result} </TextField>
       </header>
     </div>
   );
