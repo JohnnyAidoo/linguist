@@ -4,10 +4,20 @@ import { AppBar, Button, Select, TextField,MenuItem } from '@mui/material';
 import axios from 'axios';
 function App(){
 
+  const url = 'http://127.0.0.1:5000/'
+
   const [result , setresult] = useState('')
+  const [value, setvalue] = useState('')
+  const getText = (e) =>{
+    setvalue(e.target.value)
+  }
 
   const translate = ()=>{
-  axios.get('http://127.0.0.1:5000/').then((res) =>{
+    getText()
+    axios.post(url+'input',{"input":value}).then((res) => {
+      console.log(res)
+    })
+    axios.get(url).then((res) =>{
     setresult(res.data.message);
   })
   }
@@ -31,9 +41,9 @@ function App(){
             <MenuItem value={'es'}>Spanish</MenuItem>
           </Select>
         </div>
-        <TextField multiline label='input here' id='fullWidth'></TextField>
+        <TextField multiline label='input here' onChange={getText} id='fullWidth'></TextField>
         <Button onClick={translate} variant='contained' id='button'>translate</Button>
-        <TextField multiline id='fullWidth'>{result} </TextField>
+        <TextField multiline id='fullWidth' disabled value={result}></TextField>
       </header>
     </div>
   );
