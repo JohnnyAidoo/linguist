@@ -13,7 +13,6 @@ function App(){
   }
 
   const translate = ()=>{
-    getText()
     axios.post(url+'input',{"input":value}).then((res) => {
       console.log(res)
     })
