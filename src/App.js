@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { Button } from '@mui/material';
+import { AppBar, Button, TextField } from '@mui/material';
 function App(){
   return (
     <div className="App">
+      <AppBar position='static' id='AppBar'>LINGUIST</AppBar>
       <header className="App-header">
-        <Button/>
+        <TextField multiline label='input here' id='fullWidth'></TextField>
+        <Button variant='contained' id='button'>translate</Button>
+        <TextField multiline id='fullWidth'> translated </TextField>
       </header>
     </div>
   );
