@@ -24,3 +24,9 @@
   font-weight: bold;
   font-size: large;
 }
+#selects{
+  display: flex;
+  width: 80vw;
+  justify-content: space-around;
+  margin-bottom: 2%;
+}
