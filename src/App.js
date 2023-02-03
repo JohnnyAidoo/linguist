@@ -20,7 +20,7 @@ function App(){
  
   const getText = (e) =>{
     setvalue(e.target.value)
-  }
+    }
 
   const setlanguage =(e) =>{
     setlang(e.target.value);
@@ -29,7 +29,7 @@ function App(){
 
   return (
     
-    <div className="App">
+    <div className="App" onChange={translate}>
       <AppBar position='static' id='AppBar'>LINGUIST</AppBar>
       <header className="App-header">
         <div id="selects">
