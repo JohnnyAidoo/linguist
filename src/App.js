@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import { AppBar, Button, Select, TextField,MenuItem } from '@mui/material';
+import { AppBar, Button, Select, StepLabel,TextField,MenuItem } from '@mui/material';
 import axios from 'axios';
 function App(){
 
@@ -8,18 +8,24 @@ function App(){
 
   const [result , setresult] = useState('')
   const [value, setvalue] = useState('')
+  const [lang, setlang] = useState('')
+
+  
+  
+  const translate = ()=>{
+    axios.post(url,{"input":value,"lang":lang}).then((res) => {
+      setresult(res.data.message)
+    })
+  }
+ 
   const getText = (e) =>{
     setvalue(e.target.value)
   }
 
-  const translate = ()=>{
-    axios.post(url+'input',{"input":value}).then((res) => {
-      console.log(res)
-    })
-    axios.get(url).then((res) =>{
-    setresult(res.data.message);
-  })
+  const setlanguage =(e) =>{
+    setlang(e.target.value);
   }
+
 
   return (
     
@@ -28,16 +34,12 @@ function App(){
       <header className="App-header">
         <div id="selects">
 
-          <Select >
-            <MenuItem value={'en'}>English</MenuItem>
-            <MenuItem value={'fr'}>French</MenuItem>
-            <MenuItem value={'es'}>Spanish</MenuItem>
-          </Select>
+          <StepLabel>English</StepLabel>
           <br/>
-          <Select >
-            <MenuItem value={'en'}>English</MenuItem>
-            <MenuItem value={'fr'}>French</MenuItem>
-            <MenuItem value={'es'}>Spanish</MenuItem>
+          <Select onChange={setlanguage} label='To' defaultValue='en'>
+            <MenuItem  value='en'>English</MenuItem>
+            <MenuItem value='fr' >French</MenuItem>
+            <MenuItem value='es' >Spanish</MenuItem>
           </Select>
         </div>
         <TextField multiline label='input here' onChange={getText} id='fullWidth'></TextField>
