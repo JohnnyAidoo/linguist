@@ -4,8 +4,8 @@ import { AppBar, Button, Select, StepLabel,TextField,MenuItem } from '@mui/mater
 import axios from 'axios';
 function App(){
 
-//  const url = 'https://linguistback.onrender.com/'
-  const url = 'http://127.0.0.1:5000/'
+  const url = 'https://linguistback.onrender.com/'
+  //const url = 'http://127.0.0.1:5000/'
 
   const [result , setresult] = useState('')
   const [value, setvalue] = useState('')
