@@ -4,16 +4,21 @@ import { AppBar, Button, Select, StepLabel,TextField,MenuItem } from '@mui/mater
 import axios from 'axios';
 function App(){
 
-  const url = 'https://linguistback.onrender.com/'
+//  const url = 'https://linguistback.onrender.com/'
+  const url = 'http://127.0.0.1:5000/'
 
   const [result , setresult] = useState('')
   const [value, setvalue] = useState('')
-  const [lang, setlang] = useState('')
+  const [lang1, setlang1] = useState('')
+  const [lang2, setlang2] = useState('')
 
-  
+  useEffect(() =>{
+    setlang1('en')
+    setlang2('en')
+  },[])
   
   const translate = ()=>{
-    axios.post(url,{"input":value,"lang":lang}).then((res) => {
+    axios.post(url,{"input":value,"fromlang":lang1,"lang":lang2}).then((res) => {
       setresult(res.data.message)
     })
   }
@@ -22,8 +27,11 @@ function App(){
     setvalue(e.target.value)
     }
 
-  const setlanguage =(e) =>{
-    setlang(e.target.value);
+  const setlanguage1 =(e) =>{
+    setlang1(e.target.value);
+  }
+   const setlanguage2 =(e) =>{
+    setlang2(e.target.value);
   }
 
 
@@ -34,9 +42,13 @@ function App(){
       <header className="App-header">
         <div id="selects">
 
-          <StepLabel>English</StepLabel>
-          <br/>
-          <Select onChange={setlanguage} label='To' defaultValue='en'>
+        <Select onChange={setlanguage1} label='To' defaultValue='en'>
+            <MenuItem  value='en'>English</MenuItem>
+            <MenuItem value='fr' >French</MenuItem>
+            <MenuItem value='es' >Spanish</MenuItem>
+          </Select>
+            <br/>
+          <Select onChange={setlanguage2} label='To' defaultValue='en'>
             <MenuItem  value='en'>English</MenuItem>
             <MenuItem value='fr' >French</MenuItem>
             <MenuItem value='es' >Spanish</MenuItem>
