@@ -46,12 +46,16 @@ function App(){
             <MenuItem  value='en'>English</MenuItem>
             <MenuItem value='fr' >French</MenuItem>
             <MenuItem value='es' >Spanish</MenuItem>
+            <MenuItem value='zh-ch'>Chinese</MenuItem>
+            <MenuItem value= 'ko' >Korean</MenuItem>
           </Select>
             <br/>
           <Select onChange={setlanguage2} label='To' defaultValue='en'>
             <MenuItem  value='en'>English</MenuItem>
             <MenuItem value='fr' >French</MenuItem>
             <MenuItem value='es' >Spanish</MenuItem>
+            <MenuItem value='zh-ch'>Chinese</MenuItem>
+            <MenuItem value= 'ko' >Korean</MenuItem>
           </Select>
         </div>
         <TextField multiline label='input here' onChange={getText} id='fullWidth'></TextField>
