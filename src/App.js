@@ -33,7 +33,7 @@ function App(){
    const setlanguage2 =(e) =>{
     setlang2(e.target.value);
   }
-
+  console.log('h')
 
   return (
     
