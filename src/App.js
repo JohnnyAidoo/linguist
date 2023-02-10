@@ -46,7 +46,7 @@ function App(){
             <MenuItem  value='en'>English</MenuItem>
             <MenuItem value='fr' >French</MenuItem>
             <MenuItem value='es' >Spanish</MenuItem>
-            <MenuItem value='zh-ch'>Chinese</MenuItem>
+            <MenuItem value='zh-cn'>Chinese</MenuItem>
             <MenuItem value= 'ko' >Korean</MenuItem>
           </Select>
             <br/>
@@ -54,7 +54,7 @@ function App(){
             <MenuItem  value='en'>English</MenuItem>
             <MenuItem value='fr' >French</MenuItem>
             <MenuItem value='es' >Spanish</MenuItem>
-            <MenuItem value='zh-ch'>Chinese</MenuItem>
+            <MenuItem value='zh-cn'>Chinese</MenuItem>
             <MenuItem value= 'ko' >Korean</MenuItem>
           </Select>
         </div>
